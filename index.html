@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+            display: flex;
+            justify-content: start;
+            flex-direction: row-reverse;
+        }
+       p{
+           font-size: 30px;
+       }
+       .cont{
+           padding: 10px;
+           padding-top: 30px;
+           background-color: rgb(255, 255, 255);
+           margin-left: 20px;
+           height: 900px;
+           min-width:300px ;
+           display: flex;
+           align-items: center;
+           flex-direction: column;
+       }
+       .compas_bg{
+            position: relative;
+            border: 2px black solid;
+            color: #c22020;
+            width: 200px;
+            height: 200px;
+       }
+       #compas{
+            transform: rotate(-45deg);
+            position: relative;
+            top: -125px;    
+            width: 50px;
+            width: 50px;
+        }
+        #sliderH{
+            height: 30px;
+            border-radius: 20px;
+            background-color: rgb(77, 84, 235);
+        }
+        #sliderR{
+            display: flex;
+            justify-content: end;
+            height: 30px;
+            width: 300px;
+            border-radius: 20px;
+            background-color: rgb(214, 35, 15);
+        }
+        .flag{
+            display: flex;
+        }
+        .flag > img{
+            margin-left: 20px;
+            margin-right: 20px;
+            width: 150px;
+            height: 150px;
+        }
+        #button{
+            border: none;
+            border-radius: 30px;
+            margin-top: 30px;
+            width: 150px;
+            height: 50px;
+            font-size: 30px;
+            color: rgb(218, 189, 28);
+            background-color: rgb(146, 142, 142);
+            display: none;
+        }
+        #button:hover{
+            transition: 1s;
+            cursor: pointer;  
+            color: rgb(146, 142, 142);
+
+            background-color: rgb(218, 189, 28);
+        }
+        
+        #bomb{
+        width: 150px;
+        height: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <p id="myp"></p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+    <div class="cont">
+        <img src="img/compas_bg.png" class="compas_bg">
+        <img src="img/compas.png"id="compas">
+        <div class="flag"> 
+            <img src="img/robot.jpeg" >
+            <img src="img/un.png" >
+        </div>
+        <div id="sliderR" >
+            <div id="sliderH" ></div>
+        </div>  
+        <img id= "bomb" src="img/bomb.png">
+        <input type="button" id="button" onclick="location.reload()" value="Restart?">      
+    </div>
+    <script src="matrix.js"></script>
+    <script src="cursor.js"></script>
+    <script src="robots.js"></script>
+    <script src="soldiers.js"></script>
+    <script src="tanks.js"></script>
+    <script src="base.js"></script>
+    <script src="bomb.js"></script>
+
+    <script src="main.js"></script>
+</body>
+</html>
