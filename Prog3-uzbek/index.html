@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+            display: flex;
+            justify-content: start;
+            flex-direction: row-reverse;
+        }
+       p{
+           font-size: 30px;
+       }
+       .cont{
+           padding: 10px;
+           padding-top: 30px;
+           background-color: rgb(255, 255, 255);
+           margin-left: 20px;
+           min-height: 1000px;
+           min-width:300px ;
+           display: flex;
+           align-items: center;
+           flex-direction: column;
+       }
+       .compas_bg{
+            position: relative;
+            border: 2px black solid;
+            color: #c22020;
+            width: 200px;
+            height: 200px;
+       }
+       #compas{
+            transform: rotate(-45deg);
+            position: relative;
+            top: -125px;    
+            width: 50px;
+            width: 50px;
+        }
+        #sliderH{
+            height: 30px;
+            border-radius: 20px;
+            background-color: rgb(77, 84, 235);
+        }
+        #sliderR{
+            display: flex;
+            justify-content: end;
+            height: 30px;
+            width: 300px;
+            border-radius: 20px;
+            background-color: rgb(214, 35, 15);
+        }
+        .flag{
+            display: flex;
+        }
+        .flag > img{
+            margin-left: 20px;
+            margin-right: 20px;
+            width: 150px;
+            height: 150px;
+        }
+        #button{
+            border: none;
+            border-radius: 30px;
+            margin-top: 30px;
+            width: 150px;
+            height: 50px;
+            font-size: 30px;
+            color: rgb(218, 189, 28);
+            background-color: rgb(146, 142, 142);
+            display: none;
+        }
+        #button:hover{
+            transition: 1s;
+            cursor: pointer;  
+            color: rgb(146, 142, 142);
+
+            background-color: rgb(218, 189, 28);
+        }
+        
+        #bomb{
+        width: 150px;
+        height: auto;
+        }
+        #day{
+            margin-top: 40px;
+            width: auto;
+            min-width: 200px;
+            border: solid 5px blue;
+            border-radius: 30px;
+            font-size: 50px;
+            text-align: center;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            font-style: italic red;
+            color: red;
+            
+        }
+        .char{
+            width: 100px;
+            height: 100px;
+        }
+        td, tr{
+            text-align: center;
+            border: 4px solid black;
+        }
+        .txt{
+            font-size: 50px;
+        }
+        #start{
+            margin-top: 20px;
+            width: 200px;
+            height: 70px;
+            font-size: 40px;
+            border-radius: 15px;
+            background-color: rgb(88, 88, 234);
+        }
+        #start:hover{
+            cursor: pointer;
+            background-color: rgb(81, 81, 151);
+        }
+    </style>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    
+    <table id="tb">
+        <tr>
+            <td class="txt">Կանոնները։</td>
+            <td class="txt">Դու խաղում ես ռոբոտներով և պետք է փորցես գրավել ամբողջ աշխարհը։(Վերջում կտենաս սպանված մարդկանց գրաֆիկը։)</td>
+        </tr>
+        <tr>
+            <td class="txt">Կառավարում։</td>
+            <td class="txt">Մկնիկով կարողես կառավարել ռոբոտներին , իսկ Enter ռումբ գցես նշված տարածքը։</td>
+        </tr>
+        <tr>
+            <td><img class="char" src="img/characters/robot.png"></td>
+            <td class="txt">Սա ռոբոտներն են։</td>
+        </tr>
+        <tr>
+            <td><img class="char" src="img/characters/people.png"></td>
+            <td class="txt"> Սրանք մարդիկ են։ Նրանք կռվում են քո դեմ։</td>
+        </tr>
+        <tr>
+            <td><img class="char" src="img/characters/base.png"></td>
+            <td class="txt">Սրանք գործարաններն են։Կարողեն զինվորներ կամ տանկեր սարքել։<td>
+        </tr>
+        <tr>
+            <td><img class="char" src="img/characters/soldier.png"></td>
+            <td class="txt">Սրանք զինվորներն են։Կարողեն արագ կրակել 1 կամ 2 բլոկ հեռավորությամբ։</td>
+        </tr>
+        <tr>
+            <td><img class="char" src="img/characters/tank.png"></td>
+            <td class="txt">Սրանք տանկերն են։Կարողեն կրակել և խոցել մեծ տարածք։</td>
+        </tr>
+    </table>
+    <div class="cont">
+        <img src="img/compas_bg.png" class="compas_bg">
+        <img src="img/compas.png"id="compas">
+        <div class="flag"> 
+            <img src="img/robot.jpeg" >
+            <img src="img/un.png" >
+        </div>
+        <div id="sliderR" >
+            <div id="sliderH" ></div>
+        </div>  
+        <div id="day"></div>
+        <img id= "bomb" src="img/bomb.png">
+        <button id="start" onclick="start()" type="submit">Խաղալ!</button>
+    </div>
+
+    
+</body>
+</html>
